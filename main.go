@@ -3,7 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	s := New()
+	q := NewQueue()
 
-	fmt.Println(s)
+	q.Enqueue(10)
+	q.Enqueue(20)
+	q.Enqueue(30)
+
+	q.Dequeue()
+
+	fmt.Println(q)
 }
