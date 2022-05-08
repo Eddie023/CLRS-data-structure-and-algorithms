@@ -1,9 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/eddie023/data-structure/queue"
+)
 
 func main() {
-	q := NewQueue()
+	q := queue.NewQueue()
 
 	q.Enqueue(10)
 	q.Enqueue(20)
@@ -11,5 +15,5 @@ func main() {
 
 	q.Dequeue()
 
-	fmt.Println(q)
+	fmt.Printf("the current value in queue %v is %d\n", q, q.ListItems())
 }

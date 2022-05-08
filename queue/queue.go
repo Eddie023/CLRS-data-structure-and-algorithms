@@ -1,4 +1,4 @@
-package main
+package queue
 
 type Queue struct {
 	head   int
@@ -25,4 +25,8 @@ func (q *Queue) Dequeue() interface{} {
 	q.head += 1
 
 	return elm
+}
+
+func (q *Queue) ListItems() []int {
+	return q.values
 }
