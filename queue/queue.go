@@ -19,7 +19,7 @@ func (q *Queue) Enqueue(elm int) *Queue {
 }
 
 // Remove and return the first element of the queue.
-func (q *Queue) Dequeue() interface{} {
+func (q *Queue) Dequeue() any {
 	elm := q.values[q.head]
 	q.values = q.values[1:]
 	q.head += 1

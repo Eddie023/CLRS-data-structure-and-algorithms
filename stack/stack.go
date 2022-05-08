@@ -19,7 +19,7 @@ func (s *Stack) Push(elm int) *Stack {
 }
 
 // Pop the top item of the stack and return it.
-func (s *Stack) Pop() interface{} {
+func (s *Stack) Pop() any {
 	if s.top == -1 {
 
 		return nil
