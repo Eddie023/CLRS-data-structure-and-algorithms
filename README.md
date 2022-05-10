@@ -1,3 +1,3 @@
 # data-structure
 
-Data Structure implementation in Golang.
+The idea is to implement CLRS data structure and algorithms in Go. 🙏
