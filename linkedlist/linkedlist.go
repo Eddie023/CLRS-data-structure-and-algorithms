@@ -1,14 +1,12 @@
 package linkedlist
 
-import "fmt"
-
 type LinkedList struct {
 	head *Node
 	len  int
 }
 
 type Node struct {
-	value any
+	value int
 	next  *Node
 }
 
@@ -27,8 +25,14 @@ func (l *LinkedList) isEmpty() bool {
 	return (l.len == 0)
 }
 
+func createNewNode(v int) Node {
+	return Node{
+		value: v,
+	}
+}
+
 // Insert at the start of the linkedlist.
-func (l *LinkedList) Insert(value any) {
+func (l *LinkedList) Insert(value int) {
 
 	// create new node with the value.
 	newNode := Node{
@@ -51,10 +55,40 @@ func (l *LinkedList) Insert(value any) {
 	l.len++
 }
 
-func (l *LinkedList) ListItems() {
+func (l *LinkedList) InsertAtLast(value int) {
+
+	newNode := createNewNode(value)
+
 	tmp := l.head
-	for tmp != nil {
-		fmt.Println("value is", tmp.value)
+	// loop until the end node
+	for tmp.next != nil {
+		// fmt.Println("The value is", tmp.value)
 		tmp = tmp.next
 	}
+
+	tmp.next = &newNode
+	newNode.next = nil
+}
+
+func (l *LinkedList) GetLastItem() int {
+
+	tmp := l.head
+	for tmp.next != nil {
+		tmp = tmp.next
+	}
+
+	return tmp.value
+}
+
+func (l *LinkedList) ListItems() []int {
+	tmp := l.head
+
+	items := []int{}
+	for tmp != nil {
+		// fmt.Println("value is", tmp.value)
+		items = append(items, tmp.value)
+		tmp = tmp.next
+	}
+
+	return items
 }
